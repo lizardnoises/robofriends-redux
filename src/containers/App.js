@@ -4,10 +4,13 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
+import { changeSearch, selectSearch } from '../robotsSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
   const [robots, setRobots] = useState([]);
-  const [searchField, setSearchField] = useState('');
+  const searchField = useSelector(selectSearch);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -24,7 +27,9 @@ function App() {
   ) : (
     <div className="tc">
       <h1 className="f1">RoboFriends</h1>
-      <SearchBox searchChange={(event) => setSearchField(event.target.value)} />
+      <SearchBox
+        searchChange={(event) => dispatch(changeSearch(event.target.value))}
+      />
       <Scroll>
         <ErrorBoundary>
           <CardList robots={filteredRobots} />
