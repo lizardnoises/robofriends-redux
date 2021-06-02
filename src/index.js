@@ -5,8 +5,8 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
-import App from './containers/App';
-import { searchReducer, requestRobotsReducer } from './robotsSlice';
+import App from './app/App';
+import { searchReducer, requestRobotsReducer } from './app/robotsSlice';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 

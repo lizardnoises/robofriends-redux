@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox';
-import Scroll from '../components/Scroll';
-import ErrorBoundary from '../components/ErrorBoundary';
+import CardList from '../common/CardList';
+import SearchBox from '../common/SearchBox';
+import Scroll from '../common/Scroll';
+import ErrorBoundary from '../common/ErrorBoundary';
 import './App.css';
 import {
   changeSearch,
   requestRobots,
   selectSearch,
   selectRobots,
-} from '../robotsSlice';
+} from './robotsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
